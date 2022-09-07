@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">IOUD</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="signup">SignUp</string>
+    <string name="SignUp">SignUp</string>
+</resources>

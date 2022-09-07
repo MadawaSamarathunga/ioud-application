@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "134029488999",
+    "project_id": "ioud-pest-app",
+    "storage_bucket": "ioud-pest-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134029488999:android:d678dfa782d015713f75c2",
+        "android_client_info": {
+          "package_name": "com.nextapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134029488999-5vk6bmhv76s32gvah15c8avn6cfsp24q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5kP-8K-ASOX_0pQUDPPQgyGNVydM6QFg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134029488999-5vk6bmhv76s32gvah15c8avn6cfsp24q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

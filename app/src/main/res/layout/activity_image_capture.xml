@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D9D9D9"
+    tools:context=".activity_image_capture">
+
+    <TextView
+        android:id="@+id/txttime3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:textAlignment="center"
+        android:textColor="#1C5253"
+        android:textSize="55sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/uploader"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-10dp"
+        android:background="@drawable/top_button"
+        android:text="Select or Capture Image for Pest Detection"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="wrap_content"
+        android:layout_height="481dp"
+        android:layout_above="@+id/processBtn"
+        android:layout_below="@+id/txttime3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="8dp"
+        app:srcCompat="@drawable/backpic" />
+
+    <Button
+        android:id="@+id/processBtn"
+        android:layout_width="251dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/uploader"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="82dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginBottom="39dp"
+        android:enabled="false"
+        android:text="Upload and Proceed" />
+
+</RelativeLayout>
