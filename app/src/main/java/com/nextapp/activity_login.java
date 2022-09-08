@@ -63,11 +63,25 @@ public class activity_login extends AppCompatActivity {
                         return;
                     }
 
-                    if (email.isEmpty()) {
+                    if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+                        Toast.makeText(activity_login.this, "Invalid Email",
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    if (password.isEmpty()) {
                         Toast.makeText(activity_login.this, "Password is Required",
                                 Toast.LENGTH_SHORT).show();
                         return;
                     }
+
+                    if (password.length()<=6) {
+                        Toast.makeText(activity_login.this, "Password must be more than 6 Character",
+                                Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+
 
                     mAuth.signInWithEmailAndPassword(email, password)
                             .addOnCompleteListener(activity_login.this, new OnCompleteListener<AuthResult>() {

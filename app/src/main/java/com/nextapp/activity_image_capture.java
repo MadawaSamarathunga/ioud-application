@@ -20,8 +20,14 @@ import com.nextapp.dto.Pest;
 import com.nextapp.dto.Weather;
 import com.nextapp.dto.MLModelResponse;
 import com.nextapp.dto.User;
+import com.nextapp.service.RetrofitClient;
 import com.nextapp.service.WeatherClient;
+import com.squareup.okhttp.MediaType;
 
+import java.io.File;
+
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -63,6 +69,7 @@ public class activity_image_capture extends AppCompatActivity {
                 mlModelResponse.setPestInfo(pest);
                 mlModelResponse.setRecordId(123);
 
+                uploadImage();
 
                 Intent i = new Intent(activity_image_capture.this, activity_result.class);
                 i.putExtra("user", user);
@@ -132,5 +139,11 @@ public class activity_image_capture extends AppCompatActivity {
         mAuth.signOut();
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
+    }
+
+    public void uploadImage() {
+        File file = new File("");
+//        RequestBody uploadImage = RequestBody.create(MediaType.parse("image/*"), file);
+
     }
 }

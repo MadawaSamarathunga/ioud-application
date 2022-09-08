@@ -61,6 +61,48 @@ public class activity_register extends AppCompatActivity {
                 String email = txtEmail.getText().toString();
                 String password = txtPassword.getText().toString();
 
+                if (name.isEmpty()) {
+                    Toast.makeText(activity_register.this, "Name is Required",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (contactNo.isEmpty()) {
+                    Toast.makeText(activity_register.this, "Contact No is Required",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (contactNo.length()!=10) {
+                    Toast.makeText(activity_register.this, "Invalid Contact No",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (email.isEmpty()) {
+                    Toast.makeText(activity_register.this, "Email is Required",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+                    Toast.makeText(activity_register.this, "Invalid Email",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (password.isEmpty()) {
+                    Toast.makeText(activity_register.this, "Password is Required",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (password.length()<=6) {
+                    Toast.makeText(activity_register.this, "Password must be more than 6 Character",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(activity_register.this, new OnCompleteListener<AuthResult>() {
                             @Override
