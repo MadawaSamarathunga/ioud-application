@@ -14,8 +14,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
     </LinearLayout>
 
@@ -54,13 +56,13 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="107dp"
-        android:layout_height="38dp"
+        android:layout_width="122dp"
+        android:layout_height="83dp"
         android:lineSpacingExtra="14sp"
         android:text="IOUD"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="34sp"
+        android:textSize="45sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,10 +72,11 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="27dp"
+        android:layout_width="421dp"
+        android:layout_height="64dp"
         android:text="Agawood is the plantation's key to success in the future"
         android:textAlignment="center"
+        android:textSize="23sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"

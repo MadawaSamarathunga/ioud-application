@@ -1,24 +1,25 @@
 package com.nextapp.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class MLModelResponse implements Serializable {
-    private Pest pestInfo;
-    private int recordId;
+    private List<Pest> pestInfo;
+    private int recordID;
     private String authStatus;
 
-    public Pest getPestInfo() {
+    public List<Pest> getPestInfo() {
         return pestInfo;
     }
-    public void setPestInfo(Pest pestInfo) {
+    public void setPestInfo(List<Pest> pestInfo) {
         this.pestInfo = pestInfo;
     }
 
-    public int getRecordId() {
-        return recordId;
+    public int getRecordID() {
+        return recordID;
     }
-    public void setRecordId(int recordId) {
-        this.recordId = recordId;
+    public void setRecordID(int recordID) {
+        this.recordID = recordID;
     }
 
     public String getAuthStatus() {
@@ -32,7 +33,7 @@ public class MLModelResponse implements Serializable {
     public String toString() {
         return "MLModelResponse{" +
                 "pestInfo=" + pestInfo +
-                ", recordId=" + recordId +
+                ", recordId=" + recordID +
                 ", authStatus='" + authStatus + '\'' +
                 '}';
     }

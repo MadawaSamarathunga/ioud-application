@@ -5,10 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.nextapp.R;
+import com.nextapp.activity_view_customer_complains;
 import com.nextapp.dto.AuthCallResponse;
 import com.squareup.picasso.Picasso;
 
@@ -41,8 +43,9 @@ public class ComplainListAdapter extends BaseAdapter {
         return i;
     }
 
-    private class ViewHolder{
-        TextView lblUser, lblDate, lblStatus, lblPestName;
+    private class ViewHolder {
+        TextView lblUser, lblDate, lblStatus, lblPestName, lblContactNo, lblTemp;
+        Button btnMarkCompleted;
         ImageView imgPest;
     }
 
@@ -51,28 +54,38 @@ public class ComplainListAdapter extends BaseAdapter {
         View row = view;
         ViewHolder holder = new ViewHolder();
 
-        if(row == null){
+        if (row == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(layout,null);
+            row = inflater.inflate(layout, null);
 
             holder.lblUser = (TextView) row.findViewById(R.id.lblUser);
             holder.lblDate = (TextView) row.findViewById(R.id.lblDate);
             holder.lblStatus = (TextView) row.findViewById(R.id.lblStatus);
             holder.lblPestName = (TextView) row.findViewById(R.id.lblPestName);
+            holder.lblContactNo = (TextView) row.findViewById(R.id.lblContactNo);
+            holder.lblTemp = (TextView) row.findViewById(R.id.lblTemp);
             holder.imgPest = (ImageView) row.findViewById(R.id.imgPest);
+            holder.btnMarkCompleted = (Button) row.findViewById(R.id.btnMarkCompleted);
             row.setTag(holder);
 
-        }else {
+        } else {
             holder = (ViewHolder) row.getTag();
         }
 
         AuthCallResponse pest = complainList.get(position);
 
-        holder.lblUser.setText(pest.getRequestedUser());
-        holder.lblDate.setText(pest.getRequestedDate());
+        holder.lblUser.setText(pest.getRequestBy());
+        holder.lblDate.setText(pest.getRequestDate().substring(0, 10));
         holder.lblStatus.setText(pest.getStatus());
         holder.lblPestName.setText(pest.getDetectedPest());
-        Picasso.get().load(pest.getPestImage()).into(holder.imgPest);
+        holder.lblContactNo.setText(pest.getRequestUserNumber());
+        holder.lblTemp.setText(pest.getTemperature());
+        holder.btnMarkCompleted.setOnClickListener(pest.getBtnClickListener());
+        holder.btnMarkCompleted.setEnabled((pest.getStatus().equalsIgnoreCase("Completed")));
+        holder.btnMarkCompleted.setAlpha((pest.getStatus().equalsIgnoreCase("Completed")) ? 0.5f : 1);
+
+
+        Picasso.get().load("http://192.168.1.4:8000/" + pest.getPestImage()).into(holder.imgPest);
         return row;
     }
 

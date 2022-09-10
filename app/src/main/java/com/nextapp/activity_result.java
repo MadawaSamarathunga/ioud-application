@@ -13,14 +13,13 @@ import com.nextapp.dto.MLModelResponse;
 import com.nextapp.dto.User;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 
 public class activity_result extends AppCompatActivity {
 
-    TextView txtWeather;
-    ImageView imageView;
+    TextView txtWeather, txtPestName, txtRecordId, txtStatus;
+    ImageView selectedImage, pestImage;
     Button btnProcessNew;
 
     @Override
@@ -31,18 +30,26 @@ public class activity_result extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         txtWeather = findViewById(R.id.txttemp);
+        txtPestName = findViewById(R.id.resultPestName);
+        txtRecordId = findViewById(R.id.resultRecordId);
+        txtStatus = findViewById(R.id.resultStatus);
         btnProcessNew = findViewById(R.id.btnanother);
-        imageView = findViewById(R.id.imageView1);
+        selectedImage = findViewById(R.id.imageView1);
+        pestImage = findViewById(R.id.resultPestImage);
 
         User user = (User) getIntent().getSerializableExtra("user");
         Serializable response = getIntent().getSerializableExtra("response");
+        File uploadedImage = (File) getIntent().getSerializableExtra("uploadedImage");
         double weather = getIntent().getDoubleExtra("weather", 0.0);
         MLModelResponse mlModelResponse = (MLModelResponse) response;
 
 
-        Picasso.get().load(mlModelResponse.getPestInfo().getPestImage()).into(imageView);
         txtWeather.setText(String.valueOf(weather) + " °C");
-
+        Picasso.get().load(uploadedImage).into(selectedImage);
+        txtRecordId.setText(String.valueOf(mlModelResponse.getRecordID()));
+        Picasso.get().load(mlModelResponse.getPestInfo().get(0).getPestImage()).into(pestImage);
+        txtPestName.setText(mlModelResponse.getPestInfo().get(0).getPestName());
+        txtStatus.setText(mlModelResponse.getAuthStatus());
 
         btnProcessNew.setOnClickListener(new View.OnClickListener() {
             @Override

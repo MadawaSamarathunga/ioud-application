@@ -1,8 +1,10 @@
 package com.nextapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -80,8 +82,18 @@ public class activity_register extends AppCompatActivity {
                 }
 
                 if (email.isEmpty()) {
-                    Toast.makeText(activity_register.this, "Email is Required",
-                            Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(activity_register.this, "Email is Required",
+//                            Toast.LENGTH_SHORT).show();
+                    new AlertDialog.Builder(activity_register.this)
+                            .setTitle("Alert")
+                            .setMessage("Email is Required")
+                            .setCancelable(false)
+                            .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            }).show();
                     return;
                 }
 
@@ -92,8 +104,18 @@ public class activity_register extends AppCompatActivity {
                 }
 
                 if (password.isEmpty()) {
-                    Toast.makeText(activity_register.this, "Password is Required",
-                            Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(activity_register.this, "Password is Required",
+//                            Toast.LENGTH_SHORT).show();
+                    new AlertDialog.Builder(activity_register.this)
+                            .setTitle("Alert")
+                            .setMessage("Password is Required")
+                            .setCancelable(false)
+                            .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.cancel();
+                                }
+                            }).show();
                     return;
                 }
 

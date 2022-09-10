@@ -1,15 +1,19 @@
 package com.nextapp.dto;
 
+import android.view.View;
+
 import java.io.Serializable;
 
 public class AuthCallResponse implements Serializable {
     private int detectionId;
-    private String requestedUser;
-    private String requestedDate;
+    private String requestBy;
+    private String requestDate;
     private String detectedPest;
     private String pestImage;
-    private String acceptedBy;
+    private String requestUserNumber;
     private String status;
+    private String temperature;
+    private View.OnClickListener btnClickListener;
 
     public int getDetectionId() {
         return detectionId;
@@ -18,18 +22,18 @@ public class AuthCallResponse implements Serializable {
         this.detectionId = detectionId;
     }
 
-    public String getRequestedUser() {
-        return requestedUser;
+    public String getRequestBy() {
+        return requestBy;
     }
-    public void setRequestedUser(String requestedUser) {
-        this.requestedUser = requestedUser;
+    public void setRequestBy(String requestBy) {
+        this.requestBy = requestBy;
     }
 
-    public String getRequestedDate() {
-        return requestedDate;
+    public String getRequestDate() {
+        return requestDate;
     }
-    public void setRequestedDate(String requestedDate) {
-        this.requestedDate = requestedDate;
+    public void setRequestDate(String requestDate) {
+        this.requestDate = requestDate;
     }
 
     public String getDetectedPest() {
@@ -46,11 +50,11 @@ public class AuthCallResponse implements Serializable {
         this.pestImage = pestImage;
     }
 
-    public String getAcceptedBy() {
-        return acceptedBy;
+    public String getRequestUserNumber() {
+        return requestUserNumber;
     }
-    public void setAcceptedBy(String acceptedBy) {
-        this.acceptedBy = acceptedBy;
+    public void setRequestUserNumber(String requestUserNumber) {
+        this.requestUserNumber = requestUserNumber;
     }
 
     public String getStatus() {
@@ -60,15 +64,29 @@ public class AuthCallResponse implements Serializable {
         this.status = status;
     }
 
+    public String getTemperature() {
+        return temperature;
+    }
+    public void setTemperature(String temperature) {
+        this.temperature = temperature;
+    }
+
+    public View.OnClickListener getBtnClickListener() {
+        return btnClickListener;
+    }
+    public void setBtnClickListener(View.OnClickListener btnClickListener) {
+        this.btnClickListener = btnClickListener;
+    }
+
     @Override
     public String toString() {
         return "AuthCallResponse{" +
                 "detectionId=" + detectionId +
-                ", requestedUser='" + requestedUser + '\'' +
-                ", requestedDate='" + requestedDate + '\'' +
+                ", requestedUser='" + requestBy + '\'' +
+                ", requestedDate='" + requestDate + '\'' +
                 ", detectedPest='" + detectedPest + '\'' +
                 ", pestImage='" + pestImage + '\'' +
-                ", acceptedBy='" + acceptedBy + '\'' +
+                ", acceptedBy='" + requestUserNumber + '\'' +
                 ", status='" + status + '\'' +
                 '}';
     }
